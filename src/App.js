@@ -15,7 +15,7 @@ class App extends Component {
     const recipeName = e.target.elements.recipeName.value
     e.preventDefault()
 
-    const api_call = await fetch(`https://api.edamam.com/search?app_id=${process.env.REACT_APP_APP_ID}&app_key=${process.env.REACT_APP_APP_KEY}&q=${recipeName}&from=0&to=10`)
+    const api_call = await fetch(`https://api.edamam.com/search?app_id=${process.env.REACT_APP_APP_ID}&app_key=${process.env.REACT_APP_APP_KEY}&q=${recipeName}&from=0&to=12`)
     const data = await api_call.json()
     // console.log(data.hits);
     this.setState({ recipes: data.hits})
