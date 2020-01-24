@@ -4,8 +4,6 @@ import './App.css';
 import Form from './components/Form'
 import Recipes from './components/Recipes'
 
-const APP_ID = '687ef488'
-const APP_KEY = "9fe05ea4329e9c9442b5a5a308426df9"
 
 class App extends Component {
   state = {
