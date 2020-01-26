@@ -19,8 +19,27 @@ class App extends Component {
     const data = await api_call.json()
     // console.log(data.hits);
     this.setState({ recipes: data.hits})
-    console.log(this.state.recipes);
+    // console.log(this.state.recipes);
   }
+
+  componentDidMount = () => {
+    //grab our stored item
+    //this is in string format
+    const json = localStorage.getItem("recipes")
+
+    // we need to convert it in json
+    const recipes = JSON.parse(json)
+    this.setState({ recipes: recipes })
+
+  }
+  
+
+  componentDidUpdate = () => {
+    const recipes = JSON.stringify(this.state.recipes)
+    //mettre dans ls
+    localStorage.setItem("recipes", recipes)
+  }
+  
 
   render() {
     const { recipes } = this.state

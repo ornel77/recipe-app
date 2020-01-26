@@ -1,6 +1,11 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom'
+
 const Recipes = ({ recipes }) => {
+    // const randomId = Math.random().toString(36).substr(2,9)
+
+    
     return (
         <div className="container" >
             <div className="row">
@@ -18,7 +23,12 @@ const Recipes = ({ recipes }) => {
                                 </h5>
                                 <p className="recipes__subtitle">Publisher: <span>{ recipe.recipe.source }</span></p>
                             </div>
-                            <button className="recipe_buttons" >View Recipe</button>
+                            <button className="recipe_buttons" >
+                                <Link to={{ 
+                                    pathname: `/recipe/${recipe.recipe.uri.substr(44,54)}`,
+                                    state: { recipe: recipe.recipe.label}
+                                    }}>View Recipe</Link>
+                            </button>
                         </div>
                     </div>
                 )) }
